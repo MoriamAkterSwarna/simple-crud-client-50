@@ -25,6 +25,20 @@ export default function UpdateCard({user, id}) {
         role,
       }; 
 
+      fetch(`http://localhost:7000/updateUser/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("User updated:", data);
+          router.refresh()
+        })
+        
+        
 
   }
 
@@ -42,6 +56,7 @@ export default function UpdateCard({user, id}) {
         <Card.Content className="p-6 pt-4 flex flex-col gap-4">
         <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
           <Input
+          name="name"
             placeholder="John Doe"
               aria-label="Name"
             defaultValue={user?.name || ""}
@@ -49,12 +64,14 @@ export default function UpdateCard({user, id}) {
           />
           <Input
             type="email"
+            name="email"
             placeholder="john@example.com"
               aria-label="Email"
             defaultValue={user?.email || ""}
            
           />
           <Input
+          name="role"
             placeholder="admin, user, editor…"
               aria-label="Role"
             defaultValue={user?.role || ""}
