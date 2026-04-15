@@ -1,6 +1,6 @@
 
-export const getUser = async() =>{
-      const usersData = await fetch("http://localhost:7000/users")
-  const res = await usersData.json() 
-  return res; 
+export const getUser = async () => {
+  const res = await fetch("http://localhost:7000/users");
+  const data = await res.json();
+  return data;
 }
