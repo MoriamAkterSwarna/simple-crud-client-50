@@ -1,3 +1,4 @@
+import UpdateCard from '@/app/components/UpdateCard';
 import { getSingleUser } from '@/app/lib/data';
 
 
@@ -6,7 +7,7 @@ const SingleUser = async({params}) => {
     const user = await getSingleUser(id)
 
     return (
-        <section className="min-h-[calc(100vh-120px)] bg-linear-to-br from-slate-100 via-white to-emerald-50 px-4 py-10 sm:px-6">
+        <section className="min-h-[calc(100vh-120px)] bg-gradient-to-br from-slate-100 via-white to-emerald-50 px-4 py-10 sm:px-6">
             <div className="mx-auto max-w-3xl rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-xl shadow-slate-900/5 backdrop-blur sm:p-8">
                 <div className="mb-6 flex items-center justify-between gap-4">
                     <div>
@@ -14,7 +15,7 @@ const SingleUser = async({params}) => {
                         <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{user.name}</h1>
                     </div>
                     <span className="rounded-full border border-emerald-200 bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">
-                        {user.role || 'No role'}
+                        {user?.role || 'No role'}
                     </span>
                 </div>
 
@@ -29,6 +30,9 @@ const SingleUser = async({params}) => {
                     </div>
                 </div>
             </div>
+
+
+            <UpdateCard user={user} id={id} />
         </section>
     );
 };

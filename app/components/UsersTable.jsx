@@ -54,13 +54,13 @@ const handleDelete= async(id) =>{
                 </Table.Cell>
                 <Table.Cell>
                   <div className="flex gap-2">
-                    <Link href={`/user/${user._id}`} size="sm" variant="primary" className="px-3 py-2 border-2 rounded-lg">
+                    <Link href={`/user/${user._id}`} size="sm" variant="primary" className="px-4 py-1 border-2 rounded-full">
                       Details
                     </Link>
                     
-                    <Button size="sm" variant="secondary">
+                    <Link href={`/user/${user._id}`} size="sm" className="px-4 py-1 border-2 rounded-full bg-green-600" variant="secondary">
                       Edit
-                    </Button>
+                    </Link>
                     {/* DELETE */}
                     <Button onPress={() => handleDelete(user?._id)} size="sm" variant="danger">
                       Delete
