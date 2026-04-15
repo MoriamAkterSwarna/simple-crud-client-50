@@ -1,21 +1,29 @@
-import React from "react";
-import AddUserModal from "../componets/AddUserModal";
 
-const UserPage = () => {
+import AddUserModal from "../components/AddUserModal";
+import UsersTable from "../components/UsersTable";
+import { getUser } from "../lib/data";
+
+
+
+const UserPage = async() => {
+
+const users = await getUser()
+console.log(users)
 
 
   return (
     <div className="max-w-5xl mx-auto p-6">
-      <div className="flex items-center justify-between mb-8"> 
+      <div className="flex items-center justify-between mb-8">
         {/* Header */}
         <div>
           <h1 className="text-3xl font-bold">Users</h1>
         </div>
-       
 
-            <AddUserModal />
-        
+        <AddUserModal />
       </div>
+
+      {/* Users Table */}
+      <UsersTable users={users} />  
     </div>
   );
 };
