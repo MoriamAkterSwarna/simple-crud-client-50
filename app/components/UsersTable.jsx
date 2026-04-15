@@ -2,7 +2,7 @@
 import { Table, Button, Chip } from "@heroui/react";
 import { getUser } from "../lib/data";
 import { useRouter } from "next/navigation";
-
+import Link from 'next/link'
 
 const UsersTable = ({ users }) => {
   const router = useRouter()
@@ -54,7 +54,10 @@ const handleDelete= async(id) =>{
                 </Table.Cell>
                 <Table.Cell>
                   <div className="flex gap-2">
-                    {/* READ ONE + UPDATE */}
+                    <Link href={`/user/${user._id}`} size="sm" variant="primary" className="px-3 py-2 border-2 rounded-lg">
+                      Details
+                    </Link>
+                    
                     <Button size="sm" variant="secondary">
                       Edit
                     </Button>
