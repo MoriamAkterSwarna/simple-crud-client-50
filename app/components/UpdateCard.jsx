@@ -25,7 +25,7 @@ export default function UpdateCard({user, id}) {
         role,
       }; 
 
-      fetch(`http://localhost:7000/updateUser/${id}`, {
+      fetch(`https://simple-crud-server-m50.vercel.app/updateUser/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

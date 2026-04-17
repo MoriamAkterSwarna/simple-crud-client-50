@@ -9,7 +9,7 @@ const UsersTable = ({ users }) => {
 
 const handleDelete= async(id) =>{
 
-  fetch(`http://localhost:7000/user/${id}`, {
+  fetch(`https://simple-crud-server-m50.vercel.app/user/${id}`, {
     method: "DELETE"
   })
   .then(res => res.json())

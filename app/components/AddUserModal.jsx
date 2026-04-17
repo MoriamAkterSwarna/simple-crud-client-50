@@ -19,7 +19,7 @@ const AddUserModal = () => {
 
     const newUser = { name, email, role };
 
-    await fetch("http://localhost:7000/users", {
+    await fetch("https://simple-crud-server-m50.vercel.app/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
